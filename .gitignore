@@ -1,0 +1,73 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.log
+*.vs/
+.vs/
+*.swp
+*.swo
+*~
+
+## Docker
+.dockerignore
+
+## IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Logs
+logs/
+*.log
+
+## Database
+*.db
+*.sqlite
+
+## Environment
+.env
+.env.local
+.env.*.local
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+## Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## Rider
+.idea/
+*.sln.iml
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+

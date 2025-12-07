@@ -1,0 +1,31 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'notification-system'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'gateway-service'
+    static_configs:
+      - targets: ['gateway-service:80']
+    metrics_path: '/metrics'
+
+  - job_name: 'email-service'
+    static_configs:
+      - targets: ['email-service:80']
+    metrics_path: '/metrics'
+
+  - job_name: 'sms-service'
+    static_configs:
+      - targets: ['sms-service:80']
+    metrics_path: '/metrics'
+
+  - job_name: 'push-service'
+    static_configs:
+      - targets: ['push-service:80']
+    metrics_path: '/metrics'
+
