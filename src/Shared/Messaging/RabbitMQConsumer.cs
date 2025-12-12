@@ -1,6 +1,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -26,16 +27,23 @@ namespace Shared.Messaging
 
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
+            
+            // Declare dead letter exchange (must match producer)
+            _channel.ExchangeDeclare(QueueNames.DeadLetterExchange, ExchangeType.Topic, durable: true);
         }
 
         public async Task StartConsumingAsync(string queueName, Func<NotificationMessage, Task> onMessageReceived)
         {
+            // Declare queue with same arguments as producer (including dead letter exchange)
             _channel.QueueDeclare(
                 queue: queueName,
                 durable: true,
                 exclusive: false,
                 autoDelete: false,
-                arguments: null
+                arguments: new Dictionary<string, object>
+                {
+                    { "x-dead-letter-exchange", QueueNames.DeadLetterExchange }
+                }
             );
 
             _channel.BasicQos(0, 1, false);

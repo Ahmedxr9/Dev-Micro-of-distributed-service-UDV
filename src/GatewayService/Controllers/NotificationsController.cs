@@ -113,7 +113,7 @@ public class NotificationsController : ControllerBase
         }
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:guid}")]
     [ProducesResponseType(typeof(NotificationStatusDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<NotificationStatusDto>> GetNotificationStatus(Guid id)

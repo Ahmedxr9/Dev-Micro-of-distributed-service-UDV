@@ -1,0 +1,53 @@
+{
+  "email_notification": {
+    "channel": "email",
+    "recipient": "test@example.com",
+    "message": "Hello! This is a test email notification from the notification system.",
+    "metadata": {
+      "subject": "Test Email Notification",
+      "priority": "normal",
+      "template": "welcome"
+    }
+  },
+  
+  "sms_notification": {
+    "channel": "sms",
+    "recipient": "+1234567890",
+    "message": "Hello! This is a test SMS notification. Your verification code is 123456.",
+    "metadata": {
+      "sender": "NotificationSystem",
+      "priority": "high"
+    }
+  },
+  
+  "push_notification": {
+    "channel": "push",
+    "recipient": "device-token-abc123xyz",
+    "message": "Hello! You have a new notification.",
+    "metadata": {
+      "title": "New Notification",
+      "badge": 1,
+      "sound": "default",
+      "priority": "high"
+    }
+  },
+  
+  "email_minimal": {
+    "channel": "email",
+    "recipient": "user@example.com",
+    "message": "This is a minimal email notification without metadata."
+  },
+  
+  "email_with_html": {
+    "channel": "email",
+    "recipient": "test@example.com",
+    "message": "Hello! This is a test email with HTML content.",
+    "metadata": {
+      "subject": "Welcome to Our Service",
+      "html": true,
+      "template": "welcome",
+      "priority": "high"
+    }
+  }
+}
+
